@@ -1,4 +1,4 @@
--- @description Toggle bypass on all monitoring FX which names containing "[BYPASSABLE]"
+-- @description Toggle bypass on all monitoring FX whose names containin "[BYPASSABLE]"
 -- @author Simon Goričar
 -- @about
 --   This script will *toggle bypass* all monitoring FX whose names contain the phrase "[BYPASSABLE]".
