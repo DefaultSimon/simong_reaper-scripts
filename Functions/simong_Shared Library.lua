@@ -4,9 +4,12 @@
 --   This package contains a set of common functionalities that other scripts in the
 --   simong_reaper-scripts repository use (look in their description to find out which).
 -- @link https://github.com/DefaultSimon/simong_reaper-scripts
--- @version 1.0.0
+-- @version 1.0.1
 -- @changelog
---   Initial shared library version.
+--   Fix shared library appearing in the package list.
+-- @metapackage
+-- @provides
+--   [nomain] .
 
 -- -- -- -- -- -- -- -- -- -- -- --
 --       GENERAL UTILITIES       --
