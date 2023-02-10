@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1" name="SimonG Reaper Scripts" commit="38dcf291baa71f3872282a6a745e533ff4e7bb45">
+  <category name="Functions">
+    <reapack name="simong_Shared Library.lua" type="script" desc="Shared library for common functionality in the simong_reaper-scripts repository">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 This package contains a set of common functionalities that other scripts in the simong_reaper-scripts repository use (look in their description to find out which).\par}
+}
+]]></description>
+        <link rel="website">https://github.com/DefaultSimon/simong_reaper-scripts</link>
+      </metadata>
+      <version name="1.0.0" author="Simon Goričar" time="2023-02-10T17:02:36Z">
+        <changelog><![CDATA[Initial shared library version.]]></changelog>
+        <source main="main">https://github.com/DefaultSimon/simong_reaper-scripts/raw/38dcf291baa71f3872282a6a745e533ff4e7bb45/Functions/simong_Shared%20Library.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="FX">
+    <reapack name="simong_Monitoring FX Bypass scripts (based on FX names containing BYPASSABLE).lua" type="script" desc="Monitoring FX Bypass scripts (based on FX names containing &quot;[BYPASSABLE]&quot;)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 This package contains three scripts for bypassing, unbypassing and toggling monitor FX based on their FX name (FX whose name contains "[BYPASSABLE]" are bypassed, unbypassed and toggled by these scripts).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Manual dependencies: please install the following utilities/shared library package: {\i Library for common functionality in the simong_reaper-scripts repository}\par}
+}
+]]></description>
+        <link rel="website">https://github.com/DefaultSimon/simong_reaper-scripts</link>
+      </metadata>
+      <version name="1.0.0" author="Simon Goričar" time="2023-02-10T17:02:36Z">
+        <changelog><![CDATA[Initial version of the monitoring FX scripts.]]></changelog>
+        <source main="main" file="simong_Bypass all monitoring FX whose names contain BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/38dcf291baa71f3872282a6a745e533ff4e7bb45/FX/simong_Bypass%20all%20monitoring%20FX%20whose%20names%20contain%20BYPASSABLE.lua</source>
+        <source main="main" file="simong_Toggle bypass on all monitoring FX which names containing BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/38dcf291baa71f3872282a6a745e533ff4e7bb45/FX/simong_Toggle%20bypass%20on%20all%20monitoring%20FX%20which%20names%20containing%20BYPASSABLE.lua</source>
+        <source main="main" file="simong_Unbypass all monitoring FX whose names contain BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/38dcf291baa71f3872282a6a745e533ff4e7bb45/FX/simong_Unbypass%20all%20monitoring%20FX%20whose%20names%20contain%20BYPASSABLE.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <metadata>
+    <link rel="website">https://github.com/DefaultSimon/simong_reaper-scripts</link>
+  </metadata>
+</index>
