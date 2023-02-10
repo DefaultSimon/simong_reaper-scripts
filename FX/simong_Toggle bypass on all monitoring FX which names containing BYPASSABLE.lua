@@ -1,13 +1,9 @@
--- @description Unbypass all monitoring FX whose names contain "[BYPASSABLE]"
+-- @description Toggle bypass on all monitoring FX which names containing "[BYPASSABLE]"
 -- @author Simon Goričar
 -- @about
---   This script will *unbypass* all monitoring FX whose names contain the phrase "[BYPASSABLE]".
+--   This script will *toggle bypass* all monitoring FX whose names contain the phrase "[BYPASSABLE]".
 -- @link https://github.com/DefaultSimon/simong_reaper-scripts
--- @version 1.0.0
--- @changelog
---   Initial version of the monitoring FX script.
--- @provides
---   Functions/simong_common.lua
+-- @noindex
 
 
 -- CONFIGURATION BEGIN --
@@ -44,6 +40,7 @@ local lib = require("simong_common")
 -- LIBRARIES END --
 
 
+
 -- -- -- -- -- -- --
 --  SCRIPT BEGIN  --
 -- -- -- -- -- -- --
@@ -51,7 +48,7 @@ local lib = require("simong_common")
 local monitoring_effects = lib.get_all_monitoring_fx()
 
 -- Now we iterate over all available monitoring fx and, if their name contains 
--- the configured string (`MONITORING_FX_MATCHING_NAME`), we enable bypass on them.
+-- the configured string (`MONITORING_FX_MATCHING_NAME`), we toggle their bypass state.
 local current_project = lib.get_current_project()
 local master_track = reaper.GetMasterTrack(current_project)
 
@@ -60,8 +57,6 @@ for _, monitoring_fx in ipairs(monitoring_effects) do
 
     if is_configured_as_toggleable == true then
         local is_enabled = reaper.TrackFX_GetEnabled(master_track, monitoring_fx.real_index)
-        if not is_enabled then
-            reaper.TrackFX_SetEnabled(master_track, monitoring_fx.real_index, true)
-        end
+        reaper.TrackFX_SetEnabled(master_track, monitoring_fx.real_index, not is_enabled)
     end
 end

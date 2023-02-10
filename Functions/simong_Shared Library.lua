@@ -1,8 +1,17 @@
--- Copyright 2023 Simon Goričar
+-- @description Shared library for common functionality in the simong_reaper-scripts repository
+-- @author Simon Goričar
+-- @about
+--   This package contains a set of common functionalities that other scripts in the
+--   simong_reaper-scripts repository use (look in their description to find out which).
+-- @link https://github.com/DefaultSimon/simong_reaper-scripts
+-- @version 1.0.0
+-- @changelog
+--   Initial shared library version.
 
-----
--- GENERAL UTILITIES (that aren't exported)
-----
+-- -- -- -- -- -- -- -- -- -- -- --
+--       GENERAL UTILITIES       --
+-- (not exported, internal use)  --
+-- -- -- -- -- -- -- -- -- -- -- --
 
 -- Declare the function here so we can use it in `prettyprint_table`.
 local prettyprint_any_value
@@ -47,9 +56,11 @@ end
 
 
 
-----
--- REAPER GENERAL WRAPPERS AND IMPROVED FUNCTIONS
-----
+-- -- -- -- -- -- -- -- -- --
+-- REAPER GENERAL WRAPPERS --
+-- AND IMPROVED FUNCTIONS  --
+--       (exported)        --
+-- -- -- -- -- -- -- -- -- --
 
 local reaper_library = {}
 

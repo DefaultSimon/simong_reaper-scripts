@@ -1,0 +1,18 @@
+-- @description Monitoring FX Bypass scripts (based on FX names containing "[BYPASSABLE]")
+-- @author Simon Goričar
+-- @about
+--   This package contains three scripts for bypassing, unbypassing and toggling monitor FX
+--   based on their FX name (FX whose name contains "[BYPASSABLE]" are bypassed, 
+--   unbypassed and toggled by these scripts).
+--
+--   Manual dependencies: please install the following utilities/shared library 
+--   package: *Library for common functionality in the simong_reaper-scripts repository*
+-- @link https://github.com/DefaultSimon/simong_reaper-scripts
+-- @version 1.0.0
+-- @changelog
+--   Initial version of the monitoring FX scripts.
+-- @metapackage
+-- @provides
+--   [main=main] simong_Bypass all monitoring FX whose names contain BYPASSABLE.lua
+--   [main=main] simong_Toggle bypass on all monitoring FX which names containing BYPASSABLE.lua
+--   [main=main] simong_Unbypass all monitoring FX whose names contain BYPASSABLE.lua
