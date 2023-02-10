@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="SimonG Reaper Scripts" commit="38dcf291baa71f3872282a6a745e533ff4e7bb45">
+<index version="1" name="SimonG Reaper Scripts" commit="41a5af7d4412a22049f90f246afae891f83eb852">
   <category name="Functions">
     <reapack name="simong_Shared Library.lua" type="script" desc="Shared library for common functionality in the simong_reaper-scripts repository">
       <metadata>
@@ -15,6 +15,10 @@
       <version name="1.0.0" author="Simon Goričar" time="2023-02-10T17:02:36Z">
         <changelog><![CDATA[Initial shared library version.]]></changelog>
         <source main="main">https://github.com/DefaultSimon/simong_reaper-scripts/raw/38dcf291baa71f3872282a6a745e533ff4e7bb45/Functions/simong_Shared%20Library.lua</source>
+      </version>
+      <version name="1.0.1" author="Simon Goričar" time="2023-02-10T17:10:08Z">
+        <changelog><![CDATA[Fix shared library appearing in the package list.]]></changelog>
+        <source>https://github.com/DefaultSimon/simong_reaper-scripts/raw/41a5af7d4412a22049f90f246afae891f83eb852/Functions/simong_Shared%20Library.lua</source>
       </version>
     </reapack>
   </category>
