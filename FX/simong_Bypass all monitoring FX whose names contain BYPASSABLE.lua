@@ -36,7 +36,7 @@ end
 add_to_lua_path(get_script_path() .. "../Functions/?.lua")
 
 -- Load RTK and the utility library
-local lib = require("simong_common")
+local lib = require("simong_Shared Library")
 -- LIBRARIES END --
 
 
