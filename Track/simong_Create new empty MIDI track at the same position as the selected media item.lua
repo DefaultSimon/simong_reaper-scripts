@@ -1,7 +1,8 @@
 -- @description Create new empty MIDI track at the same position as the selected media item
 -- @about
 --   This script creates a new empty MIDI track at the same position (and of the same length)
---   as the currently-selected media item.
+--   as the currently-selected media item. It also unselects the original media item and
+--   selects the newly created one.
 --  
 --   Manual dependencies: please install the following package: 
 --   *"Library for common functionality in the simong_reaper-scripts repository"* (same repository).

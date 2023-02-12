@@ -56,3 +56,10 @@ and name them accordingly.
 
 #### Quirks
 - Due to how items are moved, if not all of the selected media items are on the same track, the script *might* work, but will pick a "stem collector" child from the first selected media item.
+
+---
+
+### 2.3. `Create new empty MIDI track at the same position as the selected media item`
+> Requires the `Shared library for common functionality in the simong_reaper-scripts repository` package (install manually through the ReaPack browser).
+
+This script creates a new empty MIDI track at the same position (and of the same length) as the currently-selected media item. It also unselects the original media item and selects the newly created one.
