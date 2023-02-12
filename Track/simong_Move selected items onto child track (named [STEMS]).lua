@@ -1,21 +1,21 @@
 -- @description Move selected media items onto child track whose name contains "[STEMS]"
 -- @author Simon Goričar
 -- @about
---  This script moves the selected media items from the track they are on 
---  (effectively the track the first selected item is on) to the child track
---  whose name contains the phrase "[STEMS]".
---  
---  Part of a personal workflow thing I'm testing: I record a loop, use this action to
---  push the recorded material into a child track that sends to the parent (so I can still hear what I just recorded), 
---  then record a new "overdub" on the original track (but it's just a new item, not a real overdub).
---  
---  If no "[STEMS]"-matching track is found or if no media items are selected, this script does nothing.
+--   This script moves the selected media items from the track they are on 
+--   (effectively the track the first selected item is on) to the child track
+--   whose name contains the phrase "[STEMS]".
 --   
---  This makes it easier to separate multiple overdub "chunks" of your material into separate items
---  and name them accordingly.
---  
---  Manual dependencies: please install the following package: 
---  *"Library for common functionality in the simong_reaper-scripts repository"* (same repository).
+--   Part of a personal workflow thing I'm testing: I record a loop, use this action to
+--   push the recorded material into a child track that sends to the parent (so I can still hear what I just recorded), 
+--   then record a new "overdub" on the original track (but it's just a new item, not a real overdub).
+--   
+--   If no "[STEMS]"-matching track is found or if no media items are selected, this script does nothing.
+--    
+--   This makes it easier to separate multiple overdub "chunks" of your material into separate items
+--   and name them accordingly.
+--   
+--   Manual dependencies: please install the following package: 
+--   *"Library for common functionality in the simong_reaper-scripts repository"* (same repository).
 -- @link https://github.com/DefaultSimon/simong_reaper-scripts
 -- @version 1.0.0
 -- @changelog
