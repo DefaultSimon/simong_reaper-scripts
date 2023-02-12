@@ -40,8 +40,10 @@ local function prettyprint_table(value, indentation_level)
 end
 
 -- Pretty-prints any possible lua value (via type() detection).
--- `indentation_level` parameter should be 0 when calling this from user-facing code (used for recursion).
+-- Do not pass the `indentation_level` parameter when calling this from user-facing code (used for recursion).
 prettyprint_any_value = function (value, indentation_level)
+    indentation_level = indentation_level or 0
+
     local value_type = type(value)
 
     if value_type == "nil" or value_type == "number" or value_type == "string" or value_type == "boolean" then
@@ -53,7 +55,13 @@ prettyprint_any_value = function (value, indentation_level)
     elseif value_type == "thread" then
         return "<thread>"
     elseif value_type == "userdata" then
-        return "<userdata>"
+        local metatable = getmetatable(value)
+
+        if metatable == nil then
+            return "<userdata>"
+        else
+            return "<userdata>: " .. prettyprint_table(getmetatable(value), indentation_level)
+        end
     end
 end
 
@@ -69,7 +77,20 @@ local reaper_library = {}
 
 -- Print the given value into Reaper's console, then print a new line.
 function reaper_library.println(value)
-    reaper.ShowConsoleMsg(prettyprint_any_value(value, 0) .. "\n")
+    reaper.ShowConsoleMsg(prettyprint_any_value(value) .. "\n")
+end
+
+-- Print the given error into Reaper's console after the script finishes.
+-- If `should_exit` is true, this function does not return and intead stops the script.
+function reaper_library.printerrln(value, should_exit)
+    local exit_prefix
+    if should_exit == true then
+        exit_prefix = "!"
+    else
+        exit_prefix = ""
+    end
+
+    reaper.ReaScriptError(exit_prefix .. "SCRIPT ERROR: " .. prettyprint_any_value(value) .. "\n")
 end
 
 -- Begin an undo block - when the associated `end_undo_block` is called, this will generate an undo point.
