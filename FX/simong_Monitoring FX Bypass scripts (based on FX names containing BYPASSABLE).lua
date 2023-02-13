@@ -8,12 +8,11 @@
 --   Manual dependencies: please install the following utilities/shared library 
 --   package: *Library for common functionality in the simong_reaper-scripts repository*
 -- @link https://github.com/DefaultSimon/simong_reaper-scripts
--- @version 1.0.4
+-- @version 1.0.5
 -- @changelog
---   - Fixed action name typo.
---   - Added missing undo step creation and UI update blocking code.
+--   - Updated package category.
 -- @metapackage
 -- @provides
---   [main=main] simong_Bypass all monitoring FX whose names contain BYPASSABLE.lua
---   [main=main] simong_Toggle bypass on all monitoring FX which names containing BYPASSABLE.lua
---   [main=main] simong_Unbypass all monitoring FX whose names contain BYPASSABLE.lua
+--   [main=main] monitoring-fx-bypass/simong_Bypass all monitoring FX whose names contain BYPASSABLE.lua
+--   [main=main] monitoring-fx-bypass/simong_Toggle bypass on all monitoring FX which names containing BYPASSABLE.lua
+--   [main=main] monitoring-fx-bypass/simong_Unbypass all monitoring FX whose names contain BYPASSABLE.lua
