@@ -8,9 +8,10 @@
 --   Manual dependencies: please install the following utilities/shared library 
 --   package: *Library for common functionality in the simong_reaper-scripts repository*
 -- @link https://github.com/DefaultSimon/simong_reaper-scripts
--- @version 1.0.3
+-- @version 1.0.4
 -- @changelog
---   - Improved error handling when the shared library is not installed.
+--   - Fixed action name typo.
+--   - Added missing undo step creation and UI update blocking code.
 -- @metapackage
 -- @provides
 --   [main=main] simong_Bypass all monitoring FX whose names contain BYPASSABLE.lua

@@ -70,11 +70,14 @@ local lib = require_with_feedback(
 -- -- -- -- -- -- --
 --  SCRIPT BEGIN  --
 -- -- -- -- -- -- --
+lib.block_ui_refresh()
+lib.begin_undo_block()
 
+
+-- We iterate over all available monitoring fx and, if their name contains 
+-- the configured string (`MONITORING_FX_MATCHING_NAME`), we bypass them.
 local monitoring_effects = lib.get_all_monitoring_fx()
 
--- Now we iterate over all available monitoring fx and, if their name contains 
--- the configured string (`MONITORING_FX_MATCHING_NAME`), we bypass them.
 local current_project = lib.get_current_project()
 local master_track = reaper.GetMasterTrack(current_project)
 
@@ -88,3 +91,8 @@ for _, monitoring_fx in ipairs(monitoring_effects) do
         end
     end
 end
+
+
+-- Create an undo point.
+lib.unblock_ui_refresh()
+lib.end_undo_block("Action: Bypass all monitoring FX whose names contain [BYPASSABLE]")
