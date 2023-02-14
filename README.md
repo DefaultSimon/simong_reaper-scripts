@@ -12,7 +12,6 @@ https://github.com/DefaultSimon/simong_reaper-scripts/raw/master/index.xml
 ## 2. Contents
 
 ### 2.1. `Monitoring FX Bypass scripts (based on FX names containing "[BYPASSABLE]")`
-> Requires the `Shared library for common functionality in the simong_reaper-scripts repository` package (install manually through the ReaPack browser).
 
 This package contains the following three actions:
 - `Bypass all monitoring FX whose names contain "[BYPASSABLE]"`
@@ -36,7 +35,6 @@ then go to `Extensions -> Cycle Action editor... -> Import/export -> Import in s
 ---
 
 ### 2.2. `Move selected media items onto child track whose name contains "[STEMS]"`
-> Requires the `Shared library for common functionality in the simong_reaper-scripts repository` package (install manually through the ReaPack browser).
 
 This script moves the selected media items from the track they are on to the child "stem collection" track. It finds that track by looking at the track's direct children and finding a track whose name
 contains the phrase "[STEMS]".
@@ -60,7 +58,6 @@ and name them accordingly.
 ---
 
 ### 2.3. `Create new empty MIDI track at the same position as the selected media item`
-> Requires the `Shared library for common functionality in the simong_reaper-scripts repository` package (install manually through the ReaPack browser).
 
 This script creates a new empty MIDI track at the same position (and of the same length) as the currently-selected media item. It also unselects the original media item and selects the newly created one.
 

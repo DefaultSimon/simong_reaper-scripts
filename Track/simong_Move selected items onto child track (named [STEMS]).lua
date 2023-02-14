@@ -13,82 +13,121 @@
 --    
 --   This makes it easier to separate multiple overdub "chunks" of your material into separate items
 --   and name them accordingly.
---   
---   Manual dependencies: please install the following package: 
---   *"Library for common functionality in the simong_reaper-scripts repository"* (same repository).
 -- @link https://github.com/DefaultSimon/simong_reaper-scripts
--- @version 1.0.0
+-- @version 1.0.1
 -- @changelog
---   Initial version of the script.
+--   - Removed dependency on the shared library that had to be manually installed from the repository.
 
--- CONFIGURATION BEGIN --
+
+
+--[[
+    CONFIGURATION BEGIN
+]]
 -- This is the name that must be matched on a child track for the script to do its job.
 -- Note that this is actually a pattern, so %-escapes must be done before special characters (these: ^$()%.[]*+-?).
 -- See https://www.lua.org/manual/5.3/manual.html#6.4.1 for more info.
 local CHILD_FX_MACHING_NAME = "%[STEMS%]"
--- CONFIGURATION END --
+--[[ 
+    CONFIGURATION END
+]]
 
 
--- SCRIPT BASICS BEGIN --
--- Set of local functions that must exist for us to be able to configure lua path and import libraries.
 
--- Extend the `package.path` variable to contain one additional path.
-local function add_to_lua_path(path)
-    package.path = package.path .. ";" .. path
-end
+--[[
+    COMMON FUNCTIONS FOR THIS SCRIPT
+]]
+local lib = {}
 
--- Return the directory this script resides in. Slashes are always forward-slashes, even on Windows.
-local function get_script_path()
-    local info = debug.getinfo(1, "S");
-    local script_path = info.source:match[[^@?(.*[\/])[^\/]-$]]
-
-    script_path = string.gsub(script_path, "\\", "/")
-
-    return script_path
-end
-
--- A fancier `require` with optional specific error messages (e.g. "go there and install that missing library").
-local function require_with_feedback(module_path, message_on_error)
-    local was_imported, imported_module = pcall(require, module_path)
-
-    if was_imported then
-        return imported_module
+--- Print the given error into Reaper's console after the script finishes.
+---
+--- If `should_exit` is true, this function does not return and instead **stops the script**.
+--- Implementation detail: this is achieved by prepending "!" to ReaScriptError,
+--- see ReaScript documentation: https://www.extremraym.com/cloud/reascript-doc/#ReaScriptError
+---
+---@param value any
+---@param should_exit boolean
+---@return nil
+function lib.printerrln(value, should_exit)
+    local exit_prefix
+    if should_exit == true then
+        exit_prefix = "!"
     else
-        local final_error_message
-        if message_on_error == nil then
-            final_error_message = "Could not import module: " .. tostring(module_path)
-        else
-            final_error_message = tostring(message_on_error)
-        end
-
-        reaper.ShowMessageBox(final_error_message, "ReaScript Import Error", 0)
-
-        -- Terminates the script.
-        reaper.ReaScriptError("!Errored while trying to load a module. Please follow the instructions you just saw in the previous message.")
+        exit_prefix = ""
     end
+
+    reaper.ReaScriptError(exit_prefix .. "SCRIPT ERROR: " .. tostring(value) .. "\n")
 end
--- SCRIPT BASICS END --
 
+--- Get the current project.
+---
+--- Returned userdata is of type: `ReaProject`.
+---
+---@return userdata | nil
+function lib.get_current_project()
+    return reaper.EnumProjects(-1)
+end
 
--- LIBRARIES BEGIN --
--- Extend the lua path to we can load any modules from the `Functions` directory.
-add_to_lua_path(get_script_path() .. "../Functions/?.lua")
--- Load the shared library.
-local lib = require_with_feedback(
-    "simong_Shared Library",
-    "Missing shared library package: please install the \"Shared library for common functionality in the \z
-    simong_reaper-scripts repository\" package via ReaPack (same repository)."
-)
--- LIBRARIES END --
+--- Start blocking the Reaper UI from refreshing.
+---
+---@return nil
+function lib.block_ui_refresh()
+    reaper.PreventUIRefresh(1)
+end
+
+--- Stop blocking the Reaper UI from refreshing.
+---
+---@return nil
+function lib.unblock_ui_refresh()
+    reaper.PreventUIRefresh(-1)
+end
+
+lib.UNDO_STATE_ALL = -1
+lib.UNDO_STATE_TRACKCFG = 1
+lib.UNDO_STATE_FX = 2
+lib.UNDO_STATE_ITEMS = 4
+lib.UNDO_STATE_MISCCFG = 8
+lib.UNDO_STATE_FREEZE = 16
+
+--- Begin an undo block - when the associated `end_project_undo_block` is called, 
+--- this will (or at least should) generate an undo point. As for `flags`, see UNDO_* variables.
+---
+--- `project` userdata should be of type: `ReaProject`.
+---
+---@param project userdata
+---@return nil
+function lib.begin_project_undo_block(project)
+    reaper.Undo_BeginBlock2(project)
+end
+
+--- End an undo block - this will generate an undo point if you used `begin_project_undo_block` previously.
+---
+--- `project` userdata should be of type: `ReaProject`.
+---
+---@param project userdata
+---@param action_description string
+---@param flags? number
+---@return nil
+function lib.end_project_undo_block(project, action_description, flags)
+    reaper.Undo_EndBlock2(project, action_description, flags or lib.UNDO_STATE_ALL)
+end
+
+--[[
+    END OF COMMON FUNCTIONS FOR THIS SCRIPT
+]]
+
 
 
 -- -- -- -- -- -- --
 --  SCRIPT BEGIN  --
 -- -- -- -- -- -- --
-lib.block_ui_refresh()
-lib.begin_undo_block()
-
 local current_project = lib.get_current_project()
+if current_project == nil then
+    return lib.printerrln("Could not get current Reaper project!", true)
+end
+
+lib.block_ui_refresh()
+lib.begin_project_undo_block(current_project)
+
 
 -- Collect selected media items.
 local function get_all_selected_media_items()
@@ -120,7 +159,9 @@ if track_of_first_selected_item == nil then
     return lib.printerrln("Selected media item has no associated track?!", true)
 end
 
--- Returns an array of tracks that are direct children of the parent track.
+--- Returns an array of tracks that are direct children of the parent track.
+---
+---@return table
 local function get_all_direct_children_of_track(reaper_project, parent_track)
     -- Quick documentation of GetMediaTrackInfo_Value return values:
     --    1: track has children (doesn't indicate how many; also says nothing about whether it has any parent itself)
@@ -135,6 +176,7 @@ local function get_all_direct_children_of_track(reaper_project, parent_track)
     -- We'll be iterating over consecutive track indexes, so we first get the starting index - the parent track index.
     local current_track_index = reaper.GetMediaTrackInfo_Value(parent_track, "IP_TRACKNUMBER")
     if current_track_index == 0 then
+        ---@diagnostic disable-next-line: return-type-mismatch
         return lib.printerrln("Given track has no track number!?", true)
     end
     -- Generally, we'd increment this track index by 1 to start checking the next track, 
@@ -213,9 +255,7 @@ end
 
 -- Create an undo point.
 lib.unblock_ui_refresh()
-lib.end_undo_block("Action: move selected items onto child track named [STEMS].")
+lib.end_project_undo_block(current_project, "Action: move selected items onto child track named [STEMS].")
 
 -- Refresh the arrange view.
 reaper.UpdateArrange()
-
--- DONE
