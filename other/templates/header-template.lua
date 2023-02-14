@@ -1,0 +1,8 @@
+-- @description TODO
+-- @about
+--   TODO
+-- @author Simon Goričar
+-- @link https://github.com/DefaultSimon/simong_reaper-scripts
+-- @version 1.0.0
+-- @changelog
+--   Initial version of the script.
