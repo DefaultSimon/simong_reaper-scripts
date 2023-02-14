@@ -1,1 +1,1 @@
-reapack-index --no-commit --warnings
+reapack-index --no-commit --warnings --ignore other

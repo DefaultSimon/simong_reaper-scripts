@@ -1,45 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="simong Reaper Scripts" commit="5799456e4be5a49dfad5f622ecdf96412e0d64af">
-  <category name="Functions">
-    <reapack name="simong_Shared Library.lua" type="script" desc="Shared library for common functionality in the simong_reaper-scripts repository">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa180 \li0 \fi0 This package contains a set of common functionalities that other scripts in the simong_reaper-scripts repository use (look in their description to find out which).\par}
-}
-]]></description>
-        <link rel="website">https://github.com/DefaultSimon/simong_reaper-scripts</link>
-      </metadata>
-      <version name="1.0.0" author="Simon Goričar" time="2023-02-10T17:02:36Z">
-        <changelog><![CDATA[Initial shared library version.]]></changelog>
-        <source main="main">https://github.com/DefaultSimon/simong_reaper-scripts/raw/38dcf291baa71f3872282a6a745e533ff4e7bb45/Functions/simong_Shared%20Library.lua</source>
-      </version>
-      <version name="1.0.1" author="Simon Goričar" time="2023-02-10T17:10:08Z">
-        <changelog><![CDATA[Fix shared library appearing in the package list.]]></changelog>
-        <source>https://github.com/DefaultSimon/simong_reaper-scripts/raw/41a5af7d4412a22049f90f246afae891f83eb852/Functions/simong_Shared%20Library.lua</source>
-      </version>
-    </reapack>
-  </category>
+<index version="1" name="simong Reaper Scripts" commit="993c9495ea33261d4e8cfa4b89c87f146663345b">
   <category name="FX">
-    <reapack name="simong_Monitoring FX Bypass scripts (based on FX names containing BYPASSABLE).lua" type="script" desc="Monitoring FX Bypass scripts (based on FX names containing &quot;[BYPASSABLE]&quot;)">
+    <reapack name="simong_Monitoring FX Bypass (based on FX names containing BYPASSABLE).lua" type="script" desc="Monitoring FX Bypass (based on FX names containing &quot;[BYPASSABLE]&quot;)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa180 \li0 \fi0 This package contains three scripts for bypassing, unbypassing and toggling monitor FX based on their FX name (FX whose name contains "[BYPASSABLE]" are bypassed, unbypassed and toggled by these scripts).\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Manual dependencies: please install the following utilities/shared library package: {\i Library for common functionality in the simong_reaper-scripts repository}\par}
 }
 ]]></description>
         <link rel="website">https://github.com/DefaultSimon/simong_reaper-scripts</link>
       </metadata>
-      <version name="1.0.5" author="Simon Goričar" time="2023-02-13T17:53:36Z">
-        <changelog><![CDATA[- Updated package category.]]></changelog>
-        <source main="main" file="monitoring-fx-bypass/simong_Bypass all monitoring FX whose names contain BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/5799456e4be5a49dfad5f622ecdf96412e0d64af/FX/monitoring-fx-bypass/simong_Bypass%20all%20monitoring%20FX%20whose%20names%20contain%20BYPASSABLE.lua</source>
-        <source main="main" file="monitoring-fx-bypass/simong_Toggle bypass on all monitoring FX which names containing BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/5799456e4be5a49dfad5f622ecdf96412e0d64af/FX/monitoring-fx-bypass/simong_Toggle%20bypass%20on%20all%20monitoring%20FX%20which%20names%20containing%20BYPASSABLE.lua</source>
-        <source main="main" file="monitoring-fx-bypass/simong_Unbypass all monitoring FX whose names contain BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/5799456e4be5a49dfad5f622ecdf96412e0d64af/FX/monitoring-fx-bypass/simong_Unbypass%20all%20monitoring%20FX%20whose%20names%20contain%20BYPASSABLE.lua</source>
+      <version name="1.0.6" author="Simon Goričar" time="2023-02-14T10:56:33Z">
+        <changelog><![CDATA[- Removed external dependency on the shared library - now included directly with this package instead.]]></changelog>
+        <source main="main" file="monitoring-fx-bypass/simong_Bypass all monitoring FX whose names contain BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/c62bb1c00e72bb1c84ae95fcd896f33e68bf202b/FX/monitoring-fx-bypass/simong_Bypass%20all%20monitoring%20FX%20whose%20names%20contain%20BYPASSABLE.lua</source>
+        <source main="main" file="monitoring-fx-bypass/simong_Toggle bypass on all monitoring FX which names containing BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/c62bb1c00e72bb1c84ae95fcd896f33e68bf202b/FX/monitoring-fx-bypass/simong_Toggle%20bypass%20on%20all%20monitoring%20FX%20which%20names%20containing%20BYPASSABLE.lua</source>
+        <source main="main" file="monitoring-fx-bypass/simong_Unbypass all monitoring FX whose names contain BYPASSABLE.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/c62bb1c00e72bb1c84ae95fcd896f33e68bf202b/FX/monitoring-fx-bypass/simong_Unbypass%20all%20monitoring%20FX%20whose%20names%20contain%20BYPASSABLE.lua</source>
+        <source file="monitoring-fx-bypass/simong_monitoring-fx-bypass-shared-library.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/c62bb1c00e72bb1c84ae95fcd896f33e68bf202b/FX/monitoring-fx-bypass/simong_monitoring-fx-bypass-shared-library.lua</source>
       </version>
     </reapack>
   </category>
@@ -51,7 +29,6 @@
 \widowctrl\hyphauto
 
 {\pard \ql \f0 \sa180 \li0 \fi0 This script creates a new empty MIDI track at the same position (and of the same length) as the currently-selected media item. It also unselects the original media item and selects the newly created one.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Manual dependencies: please install the following package: {\i "Library for common functionality in the simong_reaper-scripts repository"} (same repository).\par}
 }
 ]]></description>
         <link rel="website">https://github.com/DefaultSimon/simong_reaper-scripts</link>
@@ -59,6 +36,10 @@
       <version name="1.0.0" author="Simon Goričar" time="2023-02-12T19:55:07Z">
         <changelog><![CDATA[Initial version of the script.]]></changelog>
         <source main="main">https://github.com/DefaultSimon/simong_reaper-scripts/raw/5c793713ad537ef0c36c76f954d625d526a025b3/Track/simong_Create%20new%20empty%20MIDI%20track%20at%20the%20same%20position%20as%20the%20selected%20media%20item.lua</source>
+      </version>
+      <version name="1.0.1" author="Simon Goričar" time="2023-02-14T11:07:45Z">
+        <changelog><![CDATA[- Remove external dependency on the shared library.]]></changelog>
+        <source main="main">https://github.com/DefaultSimon/simong_reaper-scripts/raw/d3477a74e908b139bd0366901c297d0a67e086c1/Track/simong_Create%20new%20empty%20MIDI%20track%20at%20the%20same%20position%20as%20the%20selected%20media%20item.lua</source>
       </version>
     </reapack>
     <reapack name="simong_Move selected items onto child track (named [STEMS]).lua" type="script" desc="Move selected media items onto child track whose name contains &quot;[STEMS]&quot;">
@@ -71,7 +52,6 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 Part of a personal workflow thing I'm testing: I record a loop, use this action to push the recorded material into a child track that sends to the parent (so I can still hear what I just recorded), then record a new "overdub" on the original track (but it's just a new item, not a real overdub).\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 If no "[STEMS]"-matching track is found or if no media items are selected, this script does nothing.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 This makes it easier to separate multiple overdub "chunks" of your material into separate items and name them accordingly.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Manual dependencies: please install the following package: {\i "Library for common functionality in the simong_reaper-scripts repository"} (same repository).\par}
 }
 ]]></description>
         <link rel="website">https://github.com/DefaultSimon/simong_reaper-scripts</link>
@@ -79,6 +59,10 @@
       <version name="1.0.0" author="Simon Goričar" time="2023-02-12T18:01:05Z">
         <changelog><![CDATA[Initial version of the script.]]></changelog>
         <source main="main">https://github.com/DefaultSimon/simong_reaper-scripts/raw/42d5a0fb01411eebc448e71eb87ca612257d481a/Track/simong_Move%20selected%20items%20onto%20child%20track%20(named%20%5BSTEMS%5D).lua</source>
+      </version>
+      <version name="1.0.1" author="Simon Goričar" time="2023-02-14T11:17:17Z">
+        <changelog><![CDATA[- Removed dependency on the shared library that had to be manually installed from the repository.]]></changelog>
+        <source main="main">https://github.com/DefaultSimon/simong_reaper-scripts/raw/d597a6a76915ef69aea78821fa9e204765148b53/Track/simong_Move%20selected%20items%20onto%20child%20track%20(named%20%5BSTEMS%5D).lua</source>
       </version>
     </reapack>
   </category>
