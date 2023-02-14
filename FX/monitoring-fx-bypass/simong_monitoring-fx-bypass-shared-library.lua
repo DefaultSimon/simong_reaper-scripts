@@ -43,6 +43,8 @@ local function prettyprint_any_value(value, indentation_level)
         else
             return "<userdata>: " .. prettyprint_table(getmetatable(value), indentation_level)
         end
+    else
+        error("BUG: unsupported lua type.")
     end
 end
 
