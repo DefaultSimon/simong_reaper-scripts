@@ -1,13 +1,3 @@
--- VERY MUCH WORK IN PROGRESS, DON'T COMMIT --
-
--- @description TODO
--- @author Simon Goričar
--- @about
---   TODO
--- @link https://github.com/DefaultSimon/simong_reaper-scripts
-
-
-
 --[[
     CONFIGURATION BEGIN
 ]]
@@ -156,25 +146,24 @@ end
 -- Reaper Toolkit setup
 ---@type rtk.Window
 local window = rtk.Window({
-    h=130, w=400,
-    title="Hardware Recording Manager",
-    resizable=true,
-    docked=true,
-    dock=rtk.Window.DOCK_BOTTOM
+    -- If not using the "Compact docker when small and single tab" docker option, the actual height is around 15 px smaller.
+    h = 130 + 15,
+    w = 400,
+    title = "Hardware Recording Manager",
+    resizable = true,
+    docked = true,
+    dock = rtk.Window.DOCK_BOTTOM
 })
 
 ---@type rtk.HBox
-local window_hbox_panel_container = window:add(rtk.HBox({
-    spacing=5,
-    stretch=rtk.Box.STRETCH_FULL
-}))
+local window_hbox_panel_container = window:add(rtk.HBox({}))
 
 ---@type PanelManager
 local panel_manager = mod_panels.manager.PanelManager:new(window_hbox_panel_container)
 
 --[[
     Initialize default panels (at this moment just the plus button)
-    TODO Integrate state loading when done.
+    TODO Integrate state saving and loading when done.
 ]]
 
 local plus_button_panel = mod_panels.add.PlusButtonPanel:create(current_project)

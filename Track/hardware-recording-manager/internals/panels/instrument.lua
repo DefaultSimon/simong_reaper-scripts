@@ -62,9 +62,10 @@ function InstrumentPanel.static:create(
 )
     ---@type rtk.VBox
     local instr_ui_box = rtk.VBox({
-        spacing=5,
-        stretch=rtk.Box.STRETCH_FULL,
-        fillh=true
+        minw = 240,
+        spacing = 0,
+        stretch = rtk.Box.STRETCH_FULL,
+        fillh = true
     })
 
     ---@type rtk.Text

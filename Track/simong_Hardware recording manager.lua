@@ -1,0 +1,14 @@
+-- @description Hardware recording manager
+-- @author Simon Goričar
+-- @about
+--   A script for managing monitoring and recording MIDI and audio data from your
+--   hardware devices (synths, etc.). You register a list of instruments that exist as
+--   track structures; then you can easily enable or disable MIDI IN/OUT/THROUGH and AUDIO IN
+--   paths for quick monitoring and recording.
+-- @link https://github.com/DefaultSimon/simong_reaper-scripts
+-- @version 0.1.0
+-- @changelog
+--  - Initial very bare version of the hardware recording manager script.
+-- @metapackage
+-- @provides
+--   [main=main] hardware-recording-manager/simong_hardware-recording-manager.lua
