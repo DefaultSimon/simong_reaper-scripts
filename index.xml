@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="simong Reaper Scripts" commit="9c1bc3959391d46c2facf07aff78b60645d3c855">
+<index version="1" name="simong Reaper Scripts" commit="1a0f2aa29ed910ceece7a782354649cbd50bce93">
   <category name="FX">
     <reapack name="simong_Monitoring FX Bypass (based on FX names containing BYPASSABLE).lua" type="script" desc="Monitoring FX Bypass (based on FX names containing &quot;[BYPASSABLE]&quot;)">
       <metadata>
@@ -56,6 +56,26 @@
       <version name="0.1.0" author="Simon Goričar" time="2023-02-19T18:39:44Z">
         <changelog><![CDATA[- Initial very bare version of the hardware recording manager script.]]></changelog>
         <source main="main" file="hardware-recording-manager/simong_hardware-recording-manager.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/9c1bc3959391d46c2facf07aff78b60645d3c855/Track/hardware-recording-manager/simong_hardware-recording-manager.lua</source>
+      </version>
+      <version name="0.1.1" author="Simon Goričar" time="2023-02-20T17:04:39Z">
+        <changelog><![CDATA[- Fix dependencies and internal library not being included in the script package.]]></changelog>
+        <source main="main" file="hardware-recording-manager/simong_hardware-recording-manager.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/simong_hardware-recording-manager.lua</source>
+        <source file="hardware-recording-manager/external_libraries/inspect.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/external_libraries/inspect.lua</source>
+        <source file="hardware-recording-manager/external_libraries/middleclass.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/external_libraries/middleclass.lua</source>
+        <source file="hardware-recording-manager/internals/application.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/application.lua</source>
+        <source file="hardware-recording-manager/internals/core.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/core.lua</source>
+        <source file="hardware-recording-manager/internals/event_manager.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/event_manager.lua</source>
+        <source file="hardware-recording-manager/internals/global.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/global.lua</source>
+        <source file="hardware-recording-manager/internals/init.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/init.lua</source>
+        <source file="hardware-recording-manager/internals/instrument.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/instrument.lua</source>
+        <source file="hardware-recording-manager/internals/panels/add.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/panels/add.lua</source>
+        <source file="hardware-recording-manager/internals/panels/base.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/panels/base.lua</source>
+        <source file="hardware-recording-manager/internals/panels/init.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/panels/init.lua</source>
+        <source file="hardware-recording-manager/internals/panels/instrument.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/panels/instrument.lua</source>
+        <source file="hardware-recording-manager/internals/panels/manager.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/panels/manager.lua</source>
+        <source file="hardware-recording-manager/internals/project.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/project.lua</source>
+        <source file="hardware-recording-manager/internals/track.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/track.lua</source>
+        <source file="hardware-recording-manager/internals/ui.lua">https://github.com/DefaultSimon/simong_reaper-scripts/raw/1a0f2aa29ed910ceece7a782354649cbd50bce93/Track/hardware-recording-manager/internals/ui.lua</source>
       </version>
     </reapack>
     <reapack name="simong_Move selected items onto child track (named [STEMS]).lua" type="script" desc="Move selected media items onto child track whose name contains &quot;[STEMS]&quot;">
