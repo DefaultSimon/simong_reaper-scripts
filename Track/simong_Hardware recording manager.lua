@@ -6,9 +6,11 @@
 --   track structures; then you can easily enable or disable MIDI IN/OUT/THROUGH and AUDIO IN
 --   paths for quick monitoring and recording.
 -- @link https://github.com/DefaultSimon/simong_reaper-scripts
--- @version 0.1.0
+-- @version 0.1.1
 -- @changelog
---  - Initial very bare version of the hardware recording manager script.
+--  - Fix dependencies and internal library not being included in the script package.
 -- @metapackage
 -- @provides
 --   [main=main] hardware-recording-manager/simong_hardware-recording-manager.lua
+--   [nomain] hardware-recording-manager/external_libraries/*.lua
+--   [nomain] hardware-recording-manager/internals/**/*.lua
