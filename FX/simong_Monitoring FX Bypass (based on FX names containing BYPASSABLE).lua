@@ -5,12 +5,12 @@
 --   based on their FX name (FX whose name contains "[BYPASSABLE]" are bypassed, 
 --   unbypassed and toggled by these scripts).
 -- @link https://github.com/DefaultSimon/simong_reaper-scripts
--- @version 1.0.7
+-- @version 1.0.8
 -- @changelog
---   - Fix script name typo.
+--   - Fix script name typo (again).
 -- @metapackage
 -- @provides
 --   [main=main] monitoring-fx-bypass/simong_Bypass all monitoring FX whose names contain BYPASSABLE.lua
---   [main=main] monitoring-fx-bypass/simong_simong_Toggle bypass on all monitoring FX whose names contain BYPASSABLE.lua
+--   [main=main] monitoring-fx-bypass/simong_Toggle bypass on all monitoring FX whose names contain BYPASSABLE.lua
 --   [main=main] monitoring-fx-bypass/simong_Unbypass all monitoring FX whose names contain BYPASSABLE.lua
 --   [nomain]    monitoring-fx-bypass/simong_monitoring-fx-bypass-shared-library.lua
