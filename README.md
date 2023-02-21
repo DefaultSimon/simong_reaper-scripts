@@ -13,6 +13,12 @@ https://github.com/DefaultSimon/simong_reaper-scripts/raw/master/index.xml
 
 ### 2.1. `Monitoring FX Bypass scripts (based on FX names containing "[BYPASSABLE]")`
 
+<img 
+    src="https://raw.githubusercontent.com/DefaultSimon/simong_reaper-scripts/master/assets/demo-gifs/simong_bypassing-all-monitoring-fx-whose-names-contain-[BYPASSABLE]_demo.gif"
+    width="90%"
+    align="center"
+>
+
 This package contains the following three actions:
 - `Bypass all monitoring FX whose names contain "[BYPASSABLE]"`
 - `Toggle bypass on all monitoring FX whose names containin "[BYPASSABLE]"`
@@ -35,6 +41,12 @@ then go to `Extensions -> Cycle Action editor... -> Import/export -> Import in s
 ---
 
 ### 2.2. `Move selected media items onto child track whose name contains "[STEMS]"`
+
+<img 
+    src="https://raw.githubusercontent.com/DefaultSimon/simong_reaper-scripts/master/assets/demo-gifs/simong_move-selected-items-onto-child-track_named_[stems]_demo.gif"
+    width="90%"
+    align="center"
+>
 
 This script moves the selected media items from the track they are on to the child "stem collection" track. It finds that track by looking at the track's direct children and finding a track whose name
 contains the phrase "[STEMS]".
@@ -59,9 +71,28 @@ and name them accordingly.
 
 ### 2.3. `Create new empty MIDI track at the same position as the selected media item`
 
+<img 
+    src="https://raw.githubusercontent.com/DefaultSimon/simong_reaper-scripts/master/assets/demo-gifs/simong_create-new-empty-midi-track-at-the-same-position-as-the-selected-item_demo.gif"
+    width="90%"
+    align="center"
+>
+
 This script creates a new empty MIDI track at the same position (and of the same length) as the currently-selected media item. It also unselects the original media item and selects the newly created one.
 
 ---
 
 ## 3. Developing
 I try to adhere to the [semantic versioning rules](https://semver.org/#semantic-versioning-200) if at all possible.
+
+---
+
+## 4. Other Developer Notes
+
+### 4.1. Default `package.path`
+The default package path upon launching a lua script in Reaper is (on Windows):
+```lua
+C:\Program Files\REAPER (x64)\lua\?.lua;C:\Program Files\REAPER (x64)\lua\?\init.lua;C:\Program Files\REAPER (x64)\?.lua;C:\Program Files\REAPER (x64)\?\init.lua;C:\Program Files\REAPER (x64)\..\share\lua\5.3\?.lua;C:\Program Files\REAPER (x64)\..\share\lua\5.3\?\init.lua;.\?.lua;.\?\init.lua
+```
+
+Most of these paths don't seem to exist (at least on my Windows machine), so the
+only useful parts seem to be: `.\?.lua;.\?\init.lua`. 
